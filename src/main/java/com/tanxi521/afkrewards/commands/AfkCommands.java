@@ -24,8 +24,7 @@ public class AfkCommands implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        Player player = (Player) sender;
-        AfkData.createPlayerData(player);
+
 
         if (args.length == 0 || (args.length == 1 && args[0].equalsIgnoreCase("help"))) {
             List<String> helps = BaseUtils.getLangList("help");
@@ -54,6 +53,8 @@ public class AfkCommands implements CommandExecutor, TabCompleter {
                 sender.sendMessage(ChatColor.RED + "此命令只能在客户端使用");
                 return false;
             }
+            Player player = (Player) sender;
+            AfkData.createPlayerData(player);
             PlayerAfk playerData = AfkData.getPlayerData(player);
             if (!playerData.getType().equals("未挂机")) {
                 sender.sendMessage(BaseUtils.getLang("started").replace("%prefix", BaseUtils.getLang("prefix"))
@@ -89,6 +90,7 @@ public class AfkCommands implements CommandExecutor, TabCompleter {
                 sender.sendMessage(ChatColor.RED + "此命令只能在客户端使用");
                 return false;
             }
+            Player player = (Player) sender;
             PlayerAfk playerData = AfkData.getPlayerData(player);
             if (playerData.getType().equals("未挂机")) {
                 sender.sendMessage(BaseUtils.getLang("notstart").replace("%prefix", BaseUtils.getLang("prefix"))

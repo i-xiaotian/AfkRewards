@@ -56,10 +56,11 @@ public class BaseUtils {
             return;
         }
         List<String> commands = ConfigReader.getCommand(sender, playerAfk.getType());
-        for (int i = 0; rewardsTime > 0; i++) {
-            String command = commands.get(i);
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("{player}", sender.getName()));
-            rewardsTime--;
+        while (rewardsTime > 0) {
+            for (String cmd : commands) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", sender.getName()));
+                rewardsTime--;
+            }
         }
     }
 
