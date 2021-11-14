@@ -1,0 +1,61 @@
+# 版本号 不要 不要 不要 修改!!!
+version: 3.2
+
+# 奖励获得需要的时间(分钟/次)
+# 如设置5分钟，玩家挂机1小时，那么玩家将会在结束挂机时，获得60 ÷ 5 = 12份奖励（下方设置的指令执行12次）
+# PS:不要设置的太短，防止结束时领取奖励提示刷屏
+rewardsTime: 5
+# 设置服务器内运行挂机玩家的最大数量
+maxAfkPlayer: 10
+
+# 是否使用MySQL数据库
+mysql: false
+# 如果使用数据库，请修改以下信息
+# 数据库地址
+ip: 127.0.0.1
+# 数据库端口
+port: 3306
+# 用户名
+user: root
+# 密码
+password: root
+# 数据库库名
+database: mcdb
+
+# 设置可进行的挂机种类
+# 可以自行添加
+# 每种类型都需要给予玩家 AfkRewards.start.类型 权限，如 AfkRewards.start.point
+types:
+  - point
+  - money
+  - exp
+  - 可中文
+
+# 奖励执行的指令
+# 支持{player}玩家ID变量
+# 该指令以op权限执行，注意使用安全
+# 奖励类型名称需与上方设置的完全相同
+# 指令可设置多行
+rewardsCommands:
+  point:
+    # 正常玩家的奖励指令
+    common:
+      - 'money give {player} 5'
+    # 拥有 AfkRewards.vip 权限玩家的奖励指令
+    vip:
+      - 'money give {player} 5'
+  money:
+    common:
+      - 'money give {player} 5'
+    vip:
+      - 'money give {player} 5'
+  exp:
+    common:
+      - 'money give {player} 5'
+    vip:
+      - 'money give {player} 5'
+  可中文:
+    common:
+      - 'money give {player} 5'
+    vip:
+      - 'money give {player} 5'
