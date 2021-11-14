@@ -79,7 +79,6 @@ public class AfkCommands implements CommandExecutor, TabCompleter {
             AfkData.setStart(player, type);
             AfkMap.addAfkPlayer(AfkData.getPlayerData(player));
             String startafk = BaseUtils.getLang("startafk");
-            System.out.println(startafk);
             sender.sendMessage(BaseUtils.getLang("startafk").replace("%prefix", BaseUtils.getLang("prefix"))
                     .replace("&", "§").replace("%player%", sender.getName()));
             return true;
