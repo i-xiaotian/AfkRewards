@@ -44,7 +44,8 @@ public class AfkCommands implements CommandExecutor, TabCompleter {
             for (String type : types) {
                 sender.sendMessage(ChatColor.GRAY + "-  " + ChatColor.GOLD + type);
             }
-            sender.sendMessage(BaseUtils.getLang("start").replace("&", "§"));
+            sender.sendMessage(BaseUtils.getLang("start").replace("%prefix", BaseUtils.getLang("prefix"))
+                    .replace("&", "§"));
             return true;
         }
 
