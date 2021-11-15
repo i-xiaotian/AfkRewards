@@ -59,8 +59,8 @@ public class BaseUtils {
         while (rewardsTime > 0) {
             for (String cmd : commands) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("{player}", sender.getName()));
-                rewardsTime--;
             }
+            rewardsTime--;
         }
     }
 

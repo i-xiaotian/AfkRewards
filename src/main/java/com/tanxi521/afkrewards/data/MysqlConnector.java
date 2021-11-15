@@ -147,7 +147,7 @@ public class MysqlConnector {
             statement.setString(1, uuid);
             resultSet = statement.executeQuery();
             resultSet.first();
-            playerAfk.setPlayer_uuid(resultSet.getString("player_uuid"));
+            playerAfk.setPlayer_uuid(uuid);
             playerAfk.setDisplayName(resultSet.getString("displayName"));
             playerAfk.setType(resultSet.getString("type"));
             playerAfk.setStart(resultSet.getLong("start"));
