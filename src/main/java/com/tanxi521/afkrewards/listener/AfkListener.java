@@ -93,7 +93,7 @@ public class AfkListener implements Listener {
     public void onLogin(PlayerLoginEvent e) {
         Player player = e.getPlayer();
         PlayerAfk playerData = AfkData.getPlayerData(player);
-        if (playerData == null) {
+        if (playerData.getDisplayName() == null) {
             AfkData.createPlayerData(player);
         }
         if ((!playerData.getType().equals("未挂机")) && playerData.getEnd() == 0) {
