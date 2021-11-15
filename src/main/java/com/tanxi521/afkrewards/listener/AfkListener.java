@@ -63,15 +63,6 @@ public class AfkListener implements Listener {
     }
 
     @EventHandler
-    public void noInteract(PlayerInteractEvent e) {
-        if (AfkMap.hasPlayerIn(e.getPlayer().getName())) {
-            e.setCancelled(true);
-            e.getPlayer().sendMessage(BaseUtils.getLang("afkwarning").replace("%prefix", BaseUtils.getLang("prefix"))
-                    .replace("&", "§"));
-        }
-    }
-
-    @EventHandler
     public void noBreak(BlockBreakEvent e) {
         if (AfkMap.hasPlayerIn(e.getPlayer().getName())) {
             e.setCancelled(true);
