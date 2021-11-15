@@ -51,7 +51,7 @@ public class BaseUtils {
 
     public static void giveRewards(PlayerAfk playerAfk, CommandSender sender) {
         int rewardsTime = rewardsTime(playerAfk);
-        if (rewardsTime == 0) {
+        if (rewardsTime <= 0) {
             sender.sendMessage("§e[提示]本次挂机没有达到获得奖励时间哦");
             return;
         }
